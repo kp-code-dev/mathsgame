@@ -295,23 +295,23 @@ Sincerely,
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            <div className="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-800/40">
-              <span className="font-mono text-indigo-300 font-bold uppercase block mb-1">
+            <div className="p-4 rounded-2xl bg-indigo-50/90 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/40 hover:border-indigo-400 dark:hover:border-indigo-600/50 transition-all shadow-sm">
+              <span className="font-mono text-indigo-800 dark:text-indigo-300 font-bold uppercase block mb-1.5">
                 💻 Computing Field Application
               </span>
-              <p className="text-slate-300 leading-relaxed">{activeMission.csApplication}</p>
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-sans">{activeMission.csApplication}</p>
             </div>
-            <div className="p-4 rounded-2xl bg-purple-950/30 border border-purple-800/40">
-              <span className="font-mono text-purple-300 font-bold uppercase block mb-1">
+            <div className="p-4 rounded-2xl bg-purple-50/90 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/40 hover:border-purple-400 dark:hover:border-purple-600/50 transition-all shadow-sm">
+              <span className="font-mono text-purple-800 dark:text-purple-300 font-bold uppercase block mb-1.5">
                 📐 Mathematical Law & Formula
               </span>
-              <p className="font-mono text-purple-200 leading-relaxed">{activeMission.mathFormula}</p>
+              <p className="font-mono text-purple-800 dark:text-purple-200 leading-relaxed font-semibold">{activeMission.mathFormula}</p>
             </div>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleVerify} className="p-5 bg-slate-950 rounded-2xl border border-slate-800 space-y-4">
-            <p className="text-xs font-mono text-amber-300 mb-2">⚡ OBJECTIVE: {activeMission.instructions}</p>
+          <form onSubmit={handleVerify} className="p-5 bg-slate-100/90 dark:bg-slate-950 rounded-2xl border border-slate-300 dark:border-slate-800 space-y-4 shadow-sm">
+            <p className="text-xs font-mono text-amber-800 dark:text-amber-300 mb-2 font-bold">⚡ OBJECTIVE: {activeMission.instructions}</p>
 
             {activeMission.id === 1 && (
               <div className="max-w-md">

@@ -305,31 +305,31 @@ Sincerely,
             )}
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80 text-sm text-slate-300">
-            <span className="text-xs font-mono text-amber-400 uppercase font-bold block mb-1">
+          <div className="p-4 rounded-2xl bg-slate-100/90 dark:bg-slate-950/70 border border-slate-300 dark:border-slate-800/80 text-sm text-slate-800 dark:text-slate-300 shadow-sm">
+            <span className="text-xs font-mono text-amber-700 dark:text-amber-400 uppercase font-bold block mb-1">
               /// Scenario Briefing
             </span>
-            <p>{activeMission.story}</p>
+            <p className="leading-relaxed">{activeMission.story}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            <div className="p-4 rounded-2xl bg-orange-950/30 border border-orange-800/40">
-              <span className="font-mono text-orange-300 font-bold uppercase block mb-1">
+            <div className="p-4 rounded-2xl bg-orange-50/90 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800/40 hover:border-orange-400 dark:hover:border-orange-600/50 transition-all shadow-sm">
+              <span className="font-mono text-orange-800 dark:text-orange-300 font-bold uppercase block mb-1.5">
                 💻 Computing Field Application
               </span>
-              <p className="text-slate-300 leading-relaxed">{activeMission.csApplication}</p>
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-sans">{activeMission.csApplication}</p>
             </div>
-            <div className="p-4 rounded-2xl bg-amber-950/30 border border-amber-800/40">
-              <span className="font-mono text-amber-300 font-bold uppercase block mb-1">
+            <div className="p-4 rounded-2xl bg-amber-50/90 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/40 hover:border-amber-400 dark:hover:border-amber-600/50 transition-all shadow-sm">
+              <span className="font-mono text-amber-800 dark:text-amber-300 font-bold uppercase block mb-1.5">
                 📐 Mathematical Law & Formula
               </span>
-              <p className="font-mono text-amber-200 leading-relaxed">{activeMission.mathFormula}</p>
+              <p className="font-mono text-amber-800 dark:text-amber-200 leading-relaxed font-semibold">{activeMission.mathFormula}</p>
             </div>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleVerify} className="p-5 bg-slate-950 rounded-2xl border border-slate-800 space-y-4">
-            <p className="text-xs font-mono text-amber-300 mb-2">⚡ OBJECTIVE: {activeMission.instructions}</p>
+          <form onSubmit={handleVerify} className="p-5 bg-slate-100/90 dark:bg-slate-950 rounded-2xl border border-slate-300 dark:border-slate-800 space-y-4 shadow-sm">
+            <p className="text-xs font-mono text-amber-800 dark:text-amber-300 mb-2 font-bold">⚡ OBJECTIVE: {activeMission.instructions}</p>
 
             {activeMission.id === 1 && (
               <div className="space-y-4">

@@ -51,19 +51,19 @@ export function CombinatoricsSandbox() {
   };
 
   return (
-    <div className="bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-5 mb-6 gap-3">
+    <div className="bg-white/85 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-300 dark:border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden transition-all duration-300">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-5 mb-6 gap-3">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs uppercase tracking-wider font-mono text-cyan-400 font-bold bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-800/60">
+            <span className="text-xs uppercase tracking-wider font-mono text-cyan-700 dark:text-cyan-400 font-bold bg-cyan-100 dark:bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-300 dark:border-cyan-800/60 shadow-sm">
               Interactive Computing Lab
             </span>
           </div>
-          <h2 className="text-xl md:text-2xl font-extrabold text-white flex items-center gap-2.5">
-            <FaCalculator className="w-5 h-5 text-cyan-400" />
+          <h2 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2.5">
+            <FaCalculator className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
             <span>Combinatorics Value Lab & Growth Explorer</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
             Dynamically adjust input parameters (n, r) to observe factorial and combinatorial growth rates in real time.
           </p>
         </div>
@@ -71,12 +71,12 @@ export function CombinatoricsSandbox() {
 
       {/* Sliders Area */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800">
-          <div className="flex items-center justify-between text-xs font-mono text-cyan-300 mb-2">
+        <div className="p-4 bg-slate-100/90 dark:bg-slate-950/80 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm">
+          <div className="flex items-center justify-between text-xs font-mono text-cyan-800 dark:text-cyan-300 mb-2">
             <span className="flex items-center gap-2">
               <FaSlidersH className="w-3.5 h-3.5" /> Parameter n (Total Elements):
             </span>
-            <span className="font-bold text-white text-sm bg-slate-900 px-3 py-1 rounded-lg border border-slate-700">
+            <span className="font-bold text-slate-900 dark:text-white text-sm bg-white dark:bg-slate-900 px-3 py-1 rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm">
               {nVal}
             </span>
           </div>
@@ -86,16 +86,16 @@ export function CombinatoricsSandbox() {
             max="12"
             value={nVal}
             onChange={(e) => setNVal(Number(e.target.value))}
-            className="w-full accent-cyan-400 cursor-pointer"
+            className="w-full accent-cyan-500 cursor-pointer"
           />
         </div>
 
-        <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800">
-          <div className="flex items-center justify-between text-xs font-mono text-cyan-300 mb-2">
+        <div className="p-4 bg-slate-100/90 dark:bg-slate-950/80 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-sm">
+          <div className="flex items-center justify-between text-xs font-mono text-cyan-800 dark:text-cyan-300 mb-2">
             <span className="flex items-center gap-2">
               <FaSlidersH className="w-3.5 h-3.5" /> Parameter r / k (Subset Size / Bins):
             </span>
-            <span className="font-bold text-white text-sm bg-slate-900 px-3 py-1 rounded-lg border border-slate-700">
+            <span className="font-bold text-slate-900 dark:text-white text-sm bg-white dark:bg-slate-900 px-3 py-1 rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm">
               {Math.min(rVal, nVal)}
             </span>
           </div>
@@ -105,7 +105,7 @@ export function CombinatoricsSandbox() {
             max={nVal}
             value={Math.min(rVal, nVal)}
             onChange={(e) => setRVal(Number(e.target.value))}
-            className="w-full accent-cyan-400 cursor-pointer"
+            className="w-full accent-cyan-500 cursor-pointer"
           />
         </div>
       </div>
