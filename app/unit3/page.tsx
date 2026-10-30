@@ -204,37 +204,37 @@ Sincerely,
 
   return (
     <div className="min-h-screen bg-transparent text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-black">
-      <header className="sticky top-0 z-40 bg-[#07172c]/85 backdrop-blur-md border-b border-amber-900/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-          <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/30 p-1 flex items-center justify-center shadow-lg shadow-amber-500/10">
+      <header className="sticky top-0 z-40 glass-panel border-b transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-0 min-h-16 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3.5">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-amber-500/10 border border-amber-500/30 p-1 flex items-center justify-center shadow-lg shadow-amber-500/10 flex-shrink-0">
               <img src="/unit3-badge.svg" alt="Unit 3 Badge" className="w-full h-full object-contain" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-black tracking-wider text-base sm:text-lg text-white">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-black tracking-wider text-sm sm:text-base md:text-lg text-slate-900 dark:text-white">
                   OPTISIM TYCOON
                 </span>
-                <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-bold">
+                <span className="text-[9px] sm:text-[10px] uppercase font-mono px-1.5 sm:px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30 font-bold">
                   Unit 3 Engine
                 </span>
               </div>
-              <p className="text-xs text-slate-400 hidden sm:block">
+              <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400">
                 Operations Research & Linear Programming Simulation
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 ml-auto sm:ml-0">
             <ThemeToggle />
-            <div className="flex items-center gap-3 px-3.5 py-1.5 rounded-2xl bg-slate-900/90 border border-slate-800">
+            <div className="flex items-center gap-2.5 sm:gap-3 px-3 py-1.5 rounded-2xl glass-card">
               <div className="text-right">
-                <div className="text-[10px] font-mono text-slate-400 uppercase">Optimization Score</div>
-                <div className="text-sm font-black text-amber-400 font-mono">
+                <div className="text-[9px] sm:text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase">Optimization Score</div>
+                <div className="text-xs sm:text-sm font-black text-amber-500 font-mono">
                   {score} PTS ({completed.length}/6 Cleared)
                 </div>
               </div>
-              <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 p-1 flex items-center justify-center">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 p-1 flex items-center justify-center flex-shrink-0">
                 <img src="/trophy-badge.svg" alt="Trophy" className="w-full h-full object-contain" />
               </div>
             </div>
@@ -245,15 +245,15 @@ Sincerely,
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-6">
         <UnitNavigation currentUnit={3} />
 
-        <div className="rounded-3xl bg-gradient-to-r from-amber-950/40 via-slate-900 to-orange-950/40 border border-amber-500/20 p-6 md:p-8 shadow-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold mb-3">
-            <HiSparkles className="w-4 h-4 text-amber-400" />
+        <div className="rounded-3xl glass-panel p-5 sm:p-7 md:p-8 shadow-2xl transition-all duration-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-600 dark:text-amber-300 text-xs font-mono font-bold mb-3">
+            <HiSparkles className="w-4 h-4 text-amber-500 dark:text-amber-400" />
             <span>Unit 3: Operations Research & Linear Programming</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
             Optimize Cloud Scale, Network Flow & Game Minimax
           </h1>
-          <p className="mt-2.5 text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+          <p className="mt-2.5 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 max-w-3xl leading-relaxed font-sans">
             Solve real-world computing problems: server allocation via LPP, CDN packet transportation, Hungarian task assignment, and cybersecurity minimax game theory.
           </p>
         </div>
