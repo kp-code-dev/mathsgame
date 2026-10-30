@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { FaPlay, FaRedo, FaPlus, FaMinus } from "react-icons/fa";
+import { useTheme } from "./ThemeProvider";
 
 export function Pigeonhole3DSimulator({
   keysCount,
@@ -16,6 +17,8 @@ export function Pigeonhole3DSimulator({
 }) {
   const mountRef = useRef<HTMLDivElement>(null);
   const [activeBucketCollisions, setActiveBucketCollisions] = useState<number[]>([]);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   useEffect(() => {
     const container = mountRef.current;
@@ -25,7 +28,7 @@ export function Pigeonhole3DSimulator({
     const height = container.clientHeight;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x020617);
+    scene.background = new THREE.Color(isDark ? 0x020617 : 0xf8fafc);
 
     const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
     camera.position.set(0, 4.2, 10);
@@ -37,14 +40,19 @@ export function Pigeonhole3DSimulator({
     container.innerHTML = "";
     container.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+    const ambientLight = new THREE.AmbientLight(0xffffff, isDark ? 0.9 : 1.2);
     scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0x38bdf8, 1.8);
+    const dirLight = new THREE.DirectionalLight(0x38bdf8, isDark ? 1.8 : 2.0);
     dirLight.position.set(4, 9, 6);
     scene.add(dirLight);
 
-    const grid = new THREE.GridHelper(16, 16, 0x0ea5e9, 0x1e293b);
+    const grid = new THREE.GridHelper(
+      16,
+      16,
+      isDark ? 0x0ea5e9 : 0x0284c7,
+      isDark ? 0x1e293b : 0xe2e8f0
+    );
     grid.position.y = -2;
     scene.add(grid);
 
@@ -205,22 +213,22 @@ export function Pigeonhole3DSimulator({
       {/* 3D Visual Canvas */}
       <div
         ref={mountRef}
-        className="w-full h-64 rounded-xl overflow-hidden border border-slate-800 relative bg-[#020617]"
+        className="w-full h-64 rounded-xl overflow-hidden border border-slate-300 dark:border-slate-800 relative bg-slate-50 dark:bg-[#020617] shadow-inner transition-colors duration-300"
       />
 
       {/* Clear Bottom Explanation Box */}
-      <div className="mt-3 p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-1.5">
-        <div className="flex items-center justify-between text-slate-300 font-mono">
+      <div className="mt-3 p-3 rounded-xl bg-slate-100/90 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs space-y-1.5 shadow-sm">
+        <div className="flex items-center justify-between text-slate-800 dark:text-slate-300 font-mono">
           <span>Total Boxes = <strong>10</strong></span>
-          <span>Total Balls = <strong className="text-cyan-400">{keysCount}</strong></span>
-          <span>Status: {hasCollision ? <strong className="text-rose-400">Crash / Collision</strong> : <strong className="text-emerald-400">1 Ball Per Box</strong>}</span>
+          <span>Total Balls = <strong className="text-cyan-700 dark:text-cyan-400">{keysCount}</strong></span>
+          <span>Status: {hasCollision ? <strong className="text-rose-600 dark:text-rose-400">Crash / Collision</strong> : <strong className="text-emerald-700 dark:text-emerald-400">1 Ball Per Box</strong>}</span>
         </div>
-        <div className="flex items-center gap-4 text-[11px] pt-1 border-t border-slate-800 text-slate-400">
+        <div className="flex items-center gap-4 text-[11px] pt-1 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400">
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block" /> Blue Ball: Safe (Akeli ball)
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 inline-block shadow-sm" /> Blue Ball: Safe (Akeli ball)
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block" /> Red Ball: Collision (Ek hi box me 2 ya zyada balls)
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block shadow-sm" /> Red Ball: Collision (Ek hi box me 2 ya zyada balls)
           </span>
         </div>
       </div>

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { FaPlay, FaRedo } from "react-icons/fa";
+import { useTheme } from "./ThemeProvider";
 
 interface VisualizerProps {
   unitId: 2 | 3 | 4;
@@ -13,6 +14,8 @@ interface VisualizerProps {
 export function Concept3DVisualizer({ unitId, levelId }: VisualizerProps) {
   const mountRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState<number>(1);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   useEffect(() => {
     const container = mountRef.current;
@@ -22,7 +25,7 @@ export function Concept3DVisualizer({ unitId, levelId }: VisualizerProps) {
     const height = container.clientHeight;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x020617);
+    scene.background = new THREE.Color(isDark ? 0x020617 : 0xf8fafc);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -31,17 +34,22 @@ export function Concept3DVisualizer({ unitId, levelId }: VisualizerProps) {
     container.innerHTML = "";
     container.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+    const ambientLight = new THREE.AmbientLight(0xffffff, isDark ? 0.9 : 1.2);
     scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    const dirLight = new THREE.DirectionalLight(0xffffff, isDark ? 1.5 : 1.8);
     dirLight.position.set(5, 10, 6);
     scene.add(dirLight);
 
     const group = new THREE.Group();
     scene.add(group);
 
-    const grid = new THREE.GridHelper(16, 16, 0x38bdf8, 0x1e293b);
+    const grid = new THREE.GridHelper(
+      16,
+      16,
+      isDark ? 0x38bdf8 : 0x0284c7,
+      isDark ? 0x1e293b : 0xe2e8f0
+    );
     grid.position.y = -2;
     scene.add(grid);
 
@@ -63,12 +71,12 @@ export function Concept3DVisualizer({ unitId, levelId }: VisualizerProps) {
       const curve = new THREE.Line(curveGeo, curveMat);
       group.add(curve);
 
-      // 2. White Horizontal X-Axis Line (f(x) = 0)
+      // 2. Horizontal X-Axis Line (f(x) = 0)
       const axisGeo = new THREE.BufferGeometry().setFromPoints([
         new THREE.Vector3(-3.5, 0, 0),
         new THREE.Vector3(5.5, 0, 0),
       ]);
-      const axisMat = new THREE.LineBasicMaterial({ color: 0xe2e8f0 });
+      const axisMat = new THREE.LineBasicMaterial({ color: isDark ? 0xe2e8f0 : 0x475569 });
       const axis = new THREE.Line(axisGeo, axisMat);
       group.add(axis);
 
@@ -283,56 +291,56 @@ export function Concept3DVisualizer({ unitId, levelId }: VisualizerProps) {
       {/* 3D Canvas */}
       <div
         ref={mountRef}
-        className="w-full h-64 rounded-xl overflow-hidden border border-slate-800 bg-[#020617]"
+        className="w-full h-64 rounded-xl overflow-hidden border border-slate-300 dark:border-slate-800 bg-slate-50 dark:bg-[#020617] shadow-inner transition-colors duration-300"
       />
 
       {/* Meaningful Visual Legend */}
-      <div className="mt-3 p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs">
+      <div className="mt-3 p-3 rounded-xl bg-slate-100/90 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs shadow-sm">
         {unitId === 2 && (
-          <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px]">
+          <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-slate-800 dark:text-slate-200">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block shadow-sm" />
               Green Curve: f(x) = x² - 5
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-sky-400 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block shadow-sm" />
               Blue Point: Initial Guess x₀ = 2.0
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block shadow-sm" />
               Yellow Point: Next Guess x₁ = 2.25
             </span>
           </div>
         )}
 
         {unitId === 3 && (
-          <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px]">
+          <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-slate-800 dark:text-slate-200">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded bg-sky-500 inline-block" />
+              <span className="w-2.5 h-2.5 rounded bg-sky-500 inline-block shadow-sm" />
               Blue Area: Valid Feasible Region
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block animate-pulse shadow-sm" />
               Golden Vertex: (4, 2) Max Profit = 20
             </span>
-            <span className="flex items-center gap-1.5 text-slate-400">
+            <span className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
               Other points: (5,0)=15, (0,4)=16
             </span>
           </div>
         )}
 
         {unitId === 4 && (
-          <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px]">
+          <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-slate-800 dark:text-slate-200">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-sky-400 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block shadow-sm" />
               Blue Balls: Elements 4 and 6
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block shadow-sm" />
               Green Ball: Meet = GCD(4, 6) = 2
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-400 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block shadow-sm" />
               Purple Ball: Join = LCM(4, 6) = 12
             </span>
           </div>
