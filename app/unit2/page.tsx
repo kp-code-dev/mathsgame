@@ -195,8 +195,8 @@ Sincerely,
       <header className="sticky top-0 z-40 bg-[#030712]/80 backdrop-blur-md border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-lg shadow-emerald-500/10">
-              <FaChartLine className="w-6 h-6" />
+            <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 p-1 flex items-center justify-center shadow-lg shadow-emerald-500/10">
+              <img src="/unit2-badge.svg" alt="Unit 2 Badge" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-2">
