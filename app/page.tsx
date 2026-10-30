@@ -6,6 +6,7 @@ import { LEVELS } from "./data/levels";
 import { MissionInteractive } from "./components/MissionInteractive";
 import { CombinatoricsSandbox } from "./components/CombinatoricsSandbox";
 import { UnitNavigation } from "./components/UnitNavigation";
+import { ThemeToggle } from "./components/ThemeToggle";
 import {
   FaShieldAlt,
   FaTrophy,
@@ -80,6 +81,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-3 md:gap-4">
+            <ThemeToggle />
             {/* Score & Progress Badge */}
             <div className="flex items-center gap-3 px-3.5 py-1.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-sm">
               <div className="text-right">

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
 import { UnitNavigation } from "../components/UnitNavigation";
+import { ThemeToggle } from "../components/ThemeToggle";
 import { Concept3DVisualizer } from "../components/Concept3DVisualizer";
 import {
   FaChartLine,
@@ -214,6 +215,7 @@ Sincerely,
           </div>
 
           <div className="flex items-center gap-3 md:gap-4">
+            <ThemeToggle />
             <div className="flex items-center gap-3 px-3.5 py-1.5 rounded-2xl bg-slate-900/90 border border-slate-800">
               <div className="text-right">
                 <div className="text-[10px] font-mono text-slate-400 uppercase">Solver Progress</div>

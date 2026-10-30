@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import BlueprintBackground from "./components/BlueprintBackground";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "mathsgame",
@@ -16,15 +17,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full antialiased dark">
+    <html lang="en" className="h-full antialiased dark" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="min-h-full flex flex-col bg-[#061426] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black relative">
-        <BlueprintBackground />
-        <div className="relative z-10 flex flex-col min-h-screen bg-transparent">
-          {children}
-        </div>
+      <body className="min-h-full flex flex-col font-sans selection:bg-cyan-500 selection:text-black relative">
+        <ThemeProvider>
+          <BlueprintBackground />
+          <div className="relative z-10 flex flex-col min-h-screen bg-transparent">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

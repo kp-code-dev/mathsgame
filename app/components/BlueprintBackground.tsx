@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { useTheme } from "./ThemeProvider";
 
 /* =========================
    Utils
@@ -301,13 +302,16 @@ export default function BlueprintBackground({
   direction = "diagonal",
   speed = 0.55,
   squareSize = 44,
-  borderColor = "rgba(56, 189, 248, 0.22)", // Vibrant blueprint blue grid
-  vignette = true,
-  hoverFillColor = "rgba(14, 165, 233, 0.35)", // Stronger glow on cursor
-  hoverStrokeColor = "rgba(125, 211, 252, 0.95)", // Sharp glowing border
-  hoverGlowColor = "rgba(56, 189, 248, 0.65)",
   className = "",
 }: CombinedProps) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
+  const borderColor = isDark ? "rgba(56, 189, 248, 0.22)" : "rgba(14, 165, 233, 0.35)";
+  const hoverFillColor = isDark ? "rgba(14, 165, 233, 0.35)" : "rgba(14, 165, 233, 0.20)";
+  const hoverStrokeColor = isDark ? "rgba(125, 211, 252, 0.95)" : "rgba(2, 132, 199, 0.90)";
+  const hoverGlowColor = isDark ? "rgba(56, 189, 248, 0.65)" : "rgba(14, 165, 233, 0.45)";
+
   const gridOffsetRef = useRef<Offset>({ x: 0, y: 0 });
   const rafRef = useRef<number | null>(null);
 
@@ -352,9 +356,11 @@ export default function BlueprintBackground({
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
+      className={`fixed inset-0 pointer-events-none overflow-hidden select-none z-0 transition-colors duration-300 ${className}`}
       style={{
-        background: "linear-gradient(135deg, #07192f 0%, #030c18 50%, #01040a 100%)",
+        background: isDark
+          ? "linear-gradient(135deg, #07192f 0%, #030c18 50%, #01040a 100%)"
+          : "linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 45%, #ffffff 100%)",
       }}
     >
       {/* 1. Moving Blueprint Grid */}
@@ -363,7 +369,7 @@ export default function BlueprintBackground({
           <MovingGrid
             squareSize={squareSize}
             borderColor={borderColor}
-            vignette={vignette}
+            vignette={isDark}
             gridOffsetRef={gridOffsetRef}
           />
         </div>
@@ -381,7 +387,7 @@ export default function BlueprintBackground({
       </div>
 
       {/* 3. Subtle Film Grain */}
-      <Noise refresh={3} alpha={7} />
+      <Noise refresh={3} alpha={isDark ? 7 : 3} />
     </div>
   );
 }
