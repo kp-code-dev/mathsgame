@@ -147,25 +147,25 @@ export default function Home() {
                   onClick={() => setActiveLevelId(lvl.id)}
                   className={`p-3.5 rounded-2xl border text-left flex flex-col justify-between transition-all duration-200 cursor-pointer relative ${
                     isActive
-                      ? "bg-cyan-500/15 border-cyan-400 ring-2 ring-cyan-400/50 shadow-lg shadow-cyan-500/20 scale-[1.02]"
+                      ? "bg-cyan-500/20 dark:bg-cyan-500/15 border-cyan-500 dark:border-cyan-400 ring-2 ring-cyan-500/40 shadow-lg shadow-cyan-500/20 scale-[1.02]"
                       : isDone
-                      ? "bg-slate-900/80 border-emerald-500/40 hover:border-emerald-400 hover:bg-slate-900"
-                      : "bg-slate-900/40 border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/60"
+                      ? "bg-emerald-50/80 dark:bg-slate-900/80 border-emerald-400 dark:border-emerald-500/40 hover:border-emerald-500"
+                      : "bg-white/80 dark:bg-slate-900/40 border-slate-300 dark:border-slate-800/80 hover:border-slate-400 dark:hover:border-slate-700"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono font-black text-cyan-400">
+                    <span className="text-xs font-mono font-black text-cyan-700 dark:text-cyan-400">
                       #{lvl.id}
                     </span>
                     {isDone ? (
-                      <FaCheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                      <FaCheckCircle className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                     ) : isUnlocked ? (
-                      <FaUnlock className="w-3 h-3 text-slate-400" />
+                      <FaUnlock className="w-3 h-3 text-slate-500 dark:text-slate-400" />
                     ) : (
-                      <FaLock className="w-3 h-3 text-slate-600" />
+                      <FaLock className="w-3 h-3 text-slate-400 dark:text-slate-600" />
                     )}
                   </div>
-                  <div className="text-[11px] font-semibold text-slate-200 line-clamp-2 leading-tight">
+                  <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-200 line-clamp-2 leading-tight">
                     {lvl.topic}
                   </div>
                 </button>
