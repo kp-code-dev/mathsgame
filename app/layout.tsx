@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import BlueprintBackground from "./components/BlueprintBackground";
 
 export const metadata: Metadata = {
   title: "mathsgame",
@@ -19,8 +20,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-black">
-        {children}
+      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-black relative">
+        <BlueprintBackground />
+        <div className="relative z-10 flex flex-col min-h-screen">
+          {children}
+        </div>
       </body>
     </html>
   );
