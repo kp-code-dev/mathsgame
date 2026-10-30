@@ -299,13 +299,13 @@ interface CombinedProps {
 export default function BlueprintBackground({
   showGrid = true,
   direction = "diagonal",
-  speed = 0.45,
-  squareSize = 48,
-  borderColor = "rgba(30, 58, 95, 0.35)", // Subtle technical grid lines
+  speed = 0.55,
+  squareSize = 44,
+  borderColor = "rgba(56, 189, 248, 0.22)", // Vibrant blueprint blue grid
   vignette = true,
-  hoverFillColor = "rgba(6, 182, 212, 0.16)",
-  hoverStrokeColor = "rgba(56, 189, 248, 0.70)",
-  hoverGlowColor = "rgba(14, 165, 233, 0.40)",
+  hoverFillColor = "rgba(14, 165, 233, 0.35)", // Stronger glow on cursor
+  hoverStrokeColor = "rgba(125, 211, 252, 0.95)", // Sharp glowing border
+  hoverGlowColor = "rgba(56, 189, 248, 0.65)",
   className = "",
 }: CombinedProps) {
   const gridOffsetRef = useRef<Offset>({ x: 0, y: 0 });
@@ -318,7 +318,7 @@ export default function BlueprintBackground({
       const dt = (time - lastTime) / 1000;
       lastTime = time;
 
-      const px = speed * 30 * dt;
+      const px = speed * 32 * dt;
 
       switch (direction) {
         case "right":
@@ -352,9 +352,9 @@ export default function BlueprintBackground({
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 -z-10 pointer-events-none overflow-hidden select-none ${className}`}
+      className={`fixed inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
       style={{
-        background: "radial-gradient(ellipse at top, #081a2e 0%, #030712 70%, #010409 100%)",
+        background: "linear-gradient(135deg, #07192f 0%, #030c18 50%, #01040a 100%)",
       }}
     >
       {/* 1. Moving Blueprint Grid */}
@@ -381,7 +381,7 @@ export default function BlueprintBackground({
       </div>
 
       {/* 3. Subtle Film Grain */}
-      <Noise refresh={3} alpha={6} />
+      <Noise refresh={3} alpha={7} />
     </div>
   );
 }

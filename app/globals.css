@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #030712;
+  --background: transparent;
   --foreground: #f8fafc;
 }
 
 body {
-  background-color: #030712;
+  background-color: transparent;
   color: #f8fafc;
   overflow-x: hidden;
 }

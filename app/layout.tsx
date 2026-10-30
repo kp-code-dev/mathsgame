@@ -20,9 +20,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-black relative">
+      <body className="min-h-full flex flex-col bg-[#061426] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black relative">
         <BlueprintBackground />
-        <div className="relative z-10 flex flex-col min-h-screen">
+        <div className="relative z-10 flex flex-col min-h-screen bg-transparent">
           {children}
         </div>
       </body>

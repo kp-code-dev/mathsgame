@@ -56,9 +56,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-black">
+    <div className="min-h-screen bg-transparent text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-black">
       {/* Top Cyber Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-[#030712]/80 backdrop-blur-md border-b border-slate-800/80">
+      <header className="sticky top-0 z-40 bg-[#07172c]/85 backdrop-blur-md border-b border-cyan-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 p-1 flex items-center justify-center shadow-lg shadow-cyan-500/10">
@@ -90,8 +90,8 @@ export default function Home() {
                   {score} PTS ({completedLevels.length}/11 Cleared)
                 </div>
               </div>
-              <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-                <FaTrophy className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 p-1 flex items-center justify-center">
+                <img src="/trophy-badge.svg" alt="Trophy" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function Home() {
       </main>
 
       {/* Cyber Footer */}
-      <footer className="border-t border-slate-800/80 py-8 bg-[#030712] text-xs text-slate-500">
+      <footer className="border-t border-slate-800/80 py-8 bg-[#07172c]/80 backdrop-blur-sm text-xs text-slate-400">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>
             Foundation of Mathematics (FM) — Unit 1 Assignment:{" "}

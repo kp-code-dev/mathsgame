@@ -184,8 +184,8 @@ Sincerely,
 [Enrolment Number]`;
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col font-sans selection:bg-purple-500 selection:text-black">
-      <header className="sticky top-0 z-40 bg-[#030712]/80 backdrop-blur-md border-b border-slate-800/80">
+    <div className="min-h-screen bg-transparent text-slate-100 flex flex-col font-sans selection:bg-purple-500 selection:text-black">
+      <header className="sticky top-0 z-40 bg-[#07172c]/85 backdrop-blur-md border-b border-purple-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-2xl bg-purple-500/10 border border-purple-500/30 p-1 flex items-center justify-center shadow-lg shadow-purple-500/10">
@@ -214,7 +214,9 @@ Sincerely,
                   {score} PTS ({completed.length}/5 Cleared)
                 </div>
               </div>
-              <FaTrophy className="w-4 h-4 text-amber-400" />
+              <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 p-1 flex items-center justify-center">
+                <img src="/trophy-badge.svg" alt="Trophy" className="w-full h-full object-contain" />
+              </div>
             </div>
           </div>
         </div>
