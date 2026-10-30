@@ -7,6 +7,7 @@ import { MissionInteractive } from "./components/MissionInteractive";
 import { CombinatoricsSandbox } from "./components/CombinatoricsSandbox";
 import { UnitNavigation } from "./components/UnitNavigation";
 import { ThemeToggle } from "./components/ThemeToggle";
+import { SiteFooter } from "./components/SiteFooter";
 import {
   FaShieldAlt,
   FaTrophy,
@@ -199,18 +200,8 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Cyber Footer */}
-      <footer className="border-t border-slate-800/80 py-8 bg-[#07172c]/80 backdrop-blur-sm text-xs text-slate-400">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>
-            Foundation of Mathematics (FM) — Unit 1 Assignment:{" "}
-            <strong className="text-slate-300">Combinatorics Quest</strong>
-          </p>
-          <p className="font-mono text-cyan-400/80">
-            Silver Oak University • Faculty: Meghana Trivedi & Keyuri Shah
-          </p>
-        </div>
-      </footer>
+      {/* Centered Modern Glass Footer */}
+      <SiteFooter />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import confetti from "canvas-confetti";
 import { UnitNavigation } from "../components/UnitNavigation";
 import { ThemeToggle } from "../components/ThemeToggle";
+import { SiteFooter } from "../components/SiteFooter";
 import { Concept3DVisualizer } from "../components/Concept3DVisualizer";
 import {
   FaChartLine,
@@ -484,6 +485,8 @@ Sincerely,
           </details>
         </div>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
